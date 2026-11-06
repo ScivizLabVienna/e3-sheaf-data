@@ -48,4 +48,20 @@ No evaluator/metric/gate edits above — all three enter as P1 spec/parameter pr
 - gudhi wheel lacks `PersistentCohomology` (AttributeError); no external oracle available → by-construction regression table + golden values are the authority.
 - Pose-graph mode note: for P1 substrate F=[] deliberately, so curvature space is empty and H^1 energy = cycle holonomy defects (selftest pins both the faced-absorption and unfaced-visible behavior).
 
-Next round: `run_p1.py` — 240-trial injected-desync AUROC per frozen pre-registration (lines 3-15 above).
+## P1 RESULT — NULL, gate failed as pre-registered (2026-11-06 round 4)
+
+Frozen run (`src/run_p1.py`, deterministic seeds 0..239, output archived at `p1_results.txt`):
+```
+n=240 pos+neg; k rotates 5/6/7
+AUROC all : sheaf=0.545 baseline=0.513 delta(sheaf-baseline)=+0.033
+AUROC s15 : sheaf=0.555 baseline=0.492 delta(sheaf-baseline)=+0.062
+AUROC s25 : sheaf=0.536 baseline=0.533 delta(sheaf-baseline)=+0.003
+delta CI95 = [-0.061, +0.132]  gate: survive iff delta >= +0.05 (pre-registered)
+```
+**Verdict: NULL.** Delta +0.033 < +0.05 and CI includes 0; the s=2.5 half shows no advantage at all. One-shot rule honored — numbers do not move the gate.
+
+**Mechanism (diagnostics, not a rescue):** pre-registered injection is *view-level translation* desync (pose offset applied to one ground-truth view before remeasuring its edges). Such an offset enters the two incident edge measurements as +d and -d and **cancels in every cycle product** — it is pure gauge modulo the SE(2) commutator with neighbors, whose signal is ~theta·s·sigma ≈ 0.15 rad for s=2.5 vs rotation-noise closure std sqrt(k)·0.05 ≈ 0.13 rad at k=6. Both arms sit at chance because there is (near-)nothing to detect: H^1 cycle holonomy on a face-free pose graph is structurally blind to view-level translation desync, and consistency radius is equally blind. Supporting sensitivity probes: strength sweep needed s≈50 before the sheaf arm left chance (AUROC .762 at s=50 — nonlinear cross-coupling only); rotation-bearing injection also ≈ both arms at chance at s∈{1.5,2.5,8}. The instrument responds to defects that DO bear cycle holonomy (selftest + golden energy green), so this is a substrate-model finding, not solver failure.
+
+**Transferable negative result (the actual E3 contribution):** on registration-cycle scaffolds, H^1/sheaf harmonics detect *measurement-level* closure defects but are provingly blind to view-level translation desync; detection of the latter needs absolute/anchor constraints (a gauge fixing in H^0 terms) — proposed for a future E4-style spec only, NOT a P1 rerun (one-shot rule).
+
+Per pre-registration: **E3 archives NULL with this writeup.**
