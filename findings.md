@@ -39,3 +39,13 @@ No evaluator/metric/gate edits above — all three enter as P1 spec/parameter pr
 **Decision: fallback route per task_plan — synthetic k-views registration toy.** One known 2-D scene observed by k views; per-view data = rigid-transform estimate + landmark correspondences; ground-truth consistency known; inject desync in subsets of views for the AUROC experiment (P1). Real-substrate option stays open: the 2 Quest mp4s in 19e0dd could become a substrate later if a splat/COLMAP run is ever completed, but P1 gate does not need it.
 
 **Env:** scipy 1.17.1 already present in homotest venv (uv dry "already satisfied"); numpy 2.4.6 + gudhi + ripser verified importable with S:/hermes/cache/scratch/homotest/Scripts/python.exe. P1 ready to start.
+
+## Round 3 — solver implemented & validated GREEN (2026-11-06, commit 5e7a4e2)
+`src/sheafcore.py` + `src/selftest.py`. Hodge-Laplacian nullities; betti regression table of 7 by-construction complexes all pass (C5→(1,1,0), chorded C5→(1,2,0), chord+faced→(1,1,0), filled tri→(1,0,0), disjoint tri+edge→(2,0,0), fig8→(1,2,0), disk quad→(1,0,0)); selftest OK; golden energy pinned (uniform 1.8 on C5 → 5.832).
+
+- **Convention locked:** d0 = |E|x|V| incidence (exact cochain = d0 @ y), d1 = |F|x|E| face-boundary rows (curvature correction = d1.T @ z); harmonic_energy(x) = residual of projecting x out col-space[d0 | d1.T]. With F=[] this equals total inconsistency left after optimal global pose re-estimation — the GLRT matched-filter statistic from round-2 adoption.
+- **Two root-cause bugs found & fixed (lesson):** (1) Laplacian-slot error b0 = nullity(d0.T@d0) vs d0@d0.T off-by-one depending on shape; (2) square-incidence transpose trap: im(d0) ≠ im(d0.T) at equal rank, so exact-cochain projection must use the *exact map's own* column space — caught only by the assert that a known exact cochain has zero energy. Prose conventions drift; asserts pin semantics.
+- gudhi wheel lacks `PersistentCohomology` (AttributeError); no external oracle available → by-construction regression table + golden values are the authority.
+- Pose-graph mode note: for P1 substrate F=[] deliberately, so curvature space is empty and H^1 energy = cycle holonomy defects (selftest pins both the faced-absorption and unfaced-visible behavior).
+
+Next round: `run_p1.py` — 240-trial injected-desync AUROC per frozen pre-registration (lines 3-15 above).
