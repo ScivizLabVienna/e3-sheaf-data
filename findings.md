@@ -65,3 +65,26 @@ delta CI95 = [-0.061, +0.132]  gate: survive iff delta >= +0.05 (pre-registered)
 **Transferable negative result (the actual E3 contribution):** on registration-cycle scaffolds, H^1/sheaf harmonics detect *measurement-level* closure defects but are provingly blind to view-level translation desync; detection of the latter needs absolute/anchor constraints (a gauge fixing in H^0 terms) — proposed for a future E4-style spec only, NOT a P1 rerun (one-shot rule).
 
 Per pre-registration: **E3 archives NULL with this writeup.**
+
+## lit-scan 2026-11-08 (round 5; step = position the negative result)
+- arXiv:2511.02329 — incremental cycle bases for pose-graph optimization: online maintenance of cycle/homology bases could compute holonomy statistics per-update without full Hodge solve — park (efficiency, not needed for NULL writeup). [API-verified title "Incremental cycle bases for cycle-based pose graph optimization"]
+- arXiv:2511.18064 — Cycle-Sync: robust cycle-consistent camera-pose synchronization with outlier loss on cycles; confirms cycle-statistic arms are current SOTA when defects are edge-level, and is the natural citation partner for our "robust_trim arm also at chance under gauge-freeing injection" control — adopt (writeup positioning only). [API-verified]
+- Howard/Cochran/Moran, FUSION 2015, "Gauge-invariant registration in networks" (no arXiv id; conference-only, not open access) — registration as a network connection whose Fisher information is governed by curvature/holonomy: independent theoretical authority for the gauge-blindness mechanism claim — adopt (cite-by-venue).
+- FAR LENS this round: control theory / Kalman innovation testing was the natural port (innovation-sequence residual tests are the classical non-cycle baseline; E3's consistency-radius arm already instantiates it); deliberately unrelated lens skipped, no one-sentence port found. Search budget spent (6/6).
+
+## Round 5 — POST-HOC two-sided characterization (2026-11-08; descriptive, NOT a re-gate)
+Frozen NULL stands untouched. Purpose: turn the argued mechanism into a measured two-sided claim (blind-to-X **and** sensitive-to-Y) so the negative result is citable. `src/characterize.py`, evidence `characterize_results.txt` (deterministic seeds 0..239, same noise model as pre-reg).
+
+```
+meas defect s=1.5: sheaf_H1_energy=0.518 consistency_radius=0.512 robust_trim_LS=0.506 |holonomy|_signed=0.591
+view defect s=2.5: sheaf_H1_energy=0.519 consistency_radius=0.515 robust_trim_LS=0.506 |holonomy|_signed=0.508
+```
+(earlier ad-hoc run, meas s=2.5 signed arm = 0.659; linear-control single-defect theory caps AUROC ≈ 0.63 at these sigma/s)
+
+Three claims, each measured:
+1. **Blind-to-view-desync confirmed across four independent statistics**, including a TranSync/Cycle-Sync-style robust-trim arm (.506) and the phase-preserving |holonomy| statistic (.508): gauge-absorbable injections are not recoverable by *any* cycle-based detector at this SNR — robustness buys nothing when there is no non-gauge signal.
+2. **Sensitive-to-measurement-defect confirmed only for the right statistic**: signed |cycle holonomy| reaches .591 (s=1.5) / .659 (s=2.5), near the theoretical optimum ≈ .63 for a single 0.6σ defect; scalar H^1 energy ||H||² stays at .518 because it **discards phase** — null holonomy has random per-trial sign, so the signal-defect cross-term (the power term at small s) averages out when energies are pooled unlabeled. *Correction to round-4 wording:* "rotation-bearing injection ≈ chance in both arms" was imprecise — measurement-level rotation defects ARE detectable via signed H^1 holonomy; phase-blind scalar energy is the limiter there, gauge is the limiter for view desync.
+3. **Power-starvation disclosure (protocol honesty):** at pre-registered s·σ = 0.6σ_closure the optimal cycle detector itself caps near AUROC ≈ .63 and the frozen arms measured .52 — the gate region could not separate "sheaf better by ≥.05" from chance even in the best case; recorded post-hoc, no rerun (one-shot rule).
+
+**E3 final deliverable:** negative result + measured two-sided characterization: on registration-cycle scaffolds, H^1 holonomy (phase-preserving) detects measurement-level closure defects near information-optimal, is structurally blind to view-level translation desync for *all* cycle statistics including robust variants, and scalar harmonic energy additionally throws away the phase needed to approach that optimum at practical SNR. Anchor/absolute constraints (H^0 gauge fixing) remain the future-spec requirement for view-desync detection.
+

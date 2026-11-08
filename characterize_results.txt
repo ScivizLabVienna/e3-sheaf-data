@@ -1,0 +1,7 @@
+n=240 pos+neg; k rotates 5/6/7
+AUROC all : sheaf=0.545 baseline=0.513 delta(sheaf-baseline)=+0.033
+AUROC s15 : sheaf=0.555 baseline=0.492 delta(sheaf-baseline)=+0.062
+AUROC s25 : sheaf=0.536 baseline=0.533 delta(sheaf-baseline)=+0.003
+delta CI95 = [-0.061, +0.132]  gate: survive iff delta >= +0.05 (pre-registered)
+meas defect s=1.5: sheaf_H1_energy=0.518 consistency_radius=0.512 robust_trim_LS=0.506 |holonomy|_signed=0.591
+view defect s=2.5: sheaf_H1_energy=0.519 consistency_radius=0.515 robust_trim_LS=0.506 |holonomy|_signed=0.508
