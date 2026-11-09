@@ -21,5 +21,13 @@ H^1/cycle-consistency on rotation-bearing defects: AUROC .659/.670/.627 replicat
 2. Report per-channel MDB curves per anomaly class, never headline AUROC.
 3. Cycle/H^1 statistics are worth their cost only for rotation-class defects, where they run at theoretical capacity.
 
-## Integrity record
-Every gate in findings.md pre-registration sections (rounds 6, 8, 10) predates its run; frame-convention ambiguity disclosed and resolved by reporting BOTH faithful readings (E3b); oracle legs are labeled post-hoc diagnostics, never re-gates; E5 spec correction recorded before implementation with no numbers seen. Git: one commit per round, verdict in message (`4dc8a7a` .. `f23d816`).
+
+
+## Real-data validation (E6b, 2026-11-09; EMPIAR-10478 HeLa SBF-SEM, DOI 10.6019/EMPIAR-10478)
+On 86 real windows (adjacent lag-10 + wide-baseline global phase-correlation rows; measured triangle-closure sigma = 1.7 px):
+- Edge-anomaly AUROC rises monotonically 0.59 -> 0.93 over injections of 0.5-5 x closure-noise: the MDB-curve thesis (claim 2) holds on real measurements; the naive corollary "anomalies near 1-3 sigma are triageable" is FALSIFIED — reliable flagging needs ~4-5 x the measured noise with a plain max-residual detector.
+- Rigid one-node desync (view class, all its rows consistently shifted): AUROC exactly 0.500 at every amplitude — the gauge theorem (P1) is not an artifact of synthetic generators; relative content measurements are structurally blind to view-class displacement, at any SNR.
+- One instrument defect was caught mid-round by a frame-free fixture (self-referential anchors made the detector exactly flat) and disclosed pre-verdict: E6 first run voided as DGP modeling error, corrected in E6b before any gate result informed a choice.
+
+## Integrity record (updated)
+Every gate in findings.md pre-registration sections (rounds 6, 8, 10) predates its run; frame-convention ambiguity disclosed and resolved by reporting BOTH faithful readings (E3b); oracle legs are labeled post-hoc diagnostics, never re-gates; E5 spec correction recorded before implementation with no numbers seen. Git: one commit per round, verdict in message (`4dc8a7a` .. `7052843`).
