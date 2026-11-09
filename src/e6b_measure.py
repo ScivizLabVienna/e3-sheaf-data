@@ -14,9 +14,6 @@ def measure():
     vol = tf.memmap(PATH, mode="r"); nwin = 151 - (K + GLAG) + 1   # windows fully inside file: start i, nodes i..i+K, globals to i+GLAG<=150 -> i <= 151-K-GLAG=139... careful: global pair (node i+m, ref i+GLAG): both frames exist iff i+GLAG<151; window needs i+K<151 too
     ADJ = np.zeros((nwin, K, 2)); GLO = np.zeros((nwin, K + 1, 2))
     cache = {}
-    def cr(f):
-        if f not in cache: cache[f] = crop(np.asarray(vol[f]))
-        return cache[f]
     for i in range(nwin):
         for f in range(i, i + K + 1):
             cache[f] = crop(np.asarray(vol[f]))
