@@ -1,0 +1,12 @@
+n=240 pos+neg; k rotates 5/6/7
+AUROC all : sheaf=0.545 baseline=0.513 delta(sheaf-baseline)=+0.033
+AUROC s15 : sheaf=0.555 baseline=0.492 delta(sheaf-baseline)=+0.062
+AUROC s25 : sheaf=0.536 baseline=0.533 delta(sheaf-baseline)=+0.003
+delta CI95 = [-0.061, +0.132]  gate: survive iff delta >= +0.05 (pre-registered)
+G1 D_anchor view/null : 0.576  (gate >= 0.90)
+G2 D_anchor meas/null : 0.540  (gate >= 0.85; mechanism risk disclosed pre-run)
+G3 D_hol   meas/null  : 0.670  (replication leg: 0.659 +- 0.04)
+     D_hol view/null  : 0.677  (structural blindness expected, descriptive)
+triage null recall 0.98  -> pred null/meas/view [59, 0, 1]
+triage meas recall 0.00  -> pred null/meas/view [60, 0, 0]
+triage view recall 0.00  -> pred null/meas/view [59, 1, 0]
