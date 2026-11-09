@@ -1,0 +1,14 @@
+windows used: 86 | closure sigma per px comp = (1.784,1.659)
+fixture (known 3-sigc edge inj): null 1.427 vs inj 3.373
+M_edge level 0.5: AUROC 0.587 CI[0.502,0.671]
+M_edge level 1.0: AUROC 0.711 CI[0.631,0.783]
+M_edge level 2.0: AUROC 0.829 CI[0.761,0.886]
+M_edge level 3.0: AUROC 0.865 CI[0.805,0.917]
+M_edge level 5.0: AUROC 0.933 CI[0.890,0.967]
+N_shift level 0.5: AUROC 0.500 CI[0.412,0.588]
+N_shift level 1.0: AUROC 0.499 CI[0.411,0.586]
+N_shift level 2.0: AUROC 0.500 CI[0.412,0.588]
+N_shift level 3.0: AUROC 0.500 CI[0.412,0.589]
+N_shift level 5.0: AUROC 0.500 CI[0.412,0.588]
+G-E6 M_edge first level meeting gate: 5.0
+N_shift (theory-predicted gauge, descriptive): max AUROC 0.500
