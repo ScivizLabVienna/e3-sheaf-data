@@ -6,12 +6,12 @@ sys.path.insert(0, os.path.dirname(__file__))
 from run_p1 import auroc
 from e6_measure import crop, phase_shift
 
-PATH = os.path.join(os.path.dirname(__file__), "..", "data", "ROI_1584-6996-1.tiff")
+PATH = os.environ.get("E6B_ROI") or os.path.join(os.path.dirname(__file__), "..", "data", "ROI_1584-6996-1.tiff")  # E6B_ROI: E8 replication ROI
 K, GLAG, ALAG = 6, 30, 10
 
 
 def measure():
-    vol = tf.memmap(PATH, mode="r"); nwin = 151 - (K + GLAG) + 1   # windows fully inside file: start i, nodes i..i+K, globals to i+GLAG<=150 -> i <= 151-K-GLAG=139... careful: global pair (node i+m, ref i+GLAG): both frames exist iff i+GLAG<151; window needs i+K<151 too
+    vol = tf.memmap(PATH, mode="r"); NF = vol.shape[0]; nwin = NF - (K + GLAG) + 1  # NF from file (was hardcoded 151; second ROI frame count differs)   # windows fully inside file: start i, nodes i..i+K, globals to i+GLAG<=150 -> i <= 151-K-GLAG=139... careful: global pair (node i+m, ref i+GLAG): both frames exist iff i+GLAG<151; window needs i+K<151 too
     ADJ = np.zeros((nwin, K, 2)); GLO = np.zeros((nwin, K + 1, 2))
     cache = {}
     for i in range(nwin):

@@ -1,0 +1,6 @@
+n=240 pos+neg; k rotates 5/6/7
+AUROC all : sheaf=0.545 baseline=0.513 delta(sheaf-baseline)=+0.033
+AUROC s15 : sheaf=0.555 baseline=0.492 delta(sheaf-baseline)=+0.062
+AUROC s25 : sheaf=0.536 baseline=0.533 delta(sheaf-baseline)=+0.003
+delta CI95 = [-0.061, +0.132]  gate: survive iff delta >= +0.05 (pre-registered)
+sign=-1.0 closure median (-0.338,-0.012) px | CLOSURE SIGMA (1.459,1.469) px  [emitted BEFORE injections]

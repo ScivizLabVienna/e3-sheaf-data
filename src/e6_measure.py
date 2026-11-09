@@ -2,7 +2,6 @@
 Emits per-pair measured offsets + robust sigma_t BEFORE any injection. Frozen here; injection trials reuse this file's numbers."""
 import numpy as np, tifffile as tf, sys, os
 
-PATH = os.path.join(os.path.dirname(__file__), "..", "data", "ROI_1584-6996-1.tiff")
 CROP, LAGS, NFIRST = 512, (10, 30), 100
 
 

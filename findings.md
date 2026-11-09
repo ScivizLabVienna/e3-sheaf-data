@@ -200,5 +200,18 @@ Method: frozen e6b_meas.npz data + frozen trial seeds (reuse e6b_trials.trial, s
 GLR chi2-energy detector on identical frozen data/seeds: AUROC 0.600/0.720/0.844/0.890/0.943 vs max-abs 0.587/0.711/0.829/0.865/0.933. Gain <= +0.025 AUROC at every level; gate (>=0.9 at <=3 sigma) still missed (0.890, one hair).
 VERDICT per frozen rule: **CHANNEL PHYSICS** - the round-15 miss is NOT detector suboptimality; photogrammetry practice (>2-3x RMS prune => flagging works near 1-3 noise units) is FALSIFIED for this deformation-dominated SBF channel: heavy-tailed physical deformation inflates the closure sigma AND hides real defects inside it, so effective MDB sits ~4-5x the RMS scale. Detector choice moves the curve by <0.03; the channel sets it.
 
+
+
+## E8 PRE-REGISTRATION (2026-11-09, BEFORE download/run; one-shot external replication)
+Second ROI of same EMPIAR-10478 entry, distant location: ROI_3576-5232-35.tiff (740,048,035 B verified via HEAD before download). Pipeline 100% frozen (e6b_measure + e7 GLR-energy detector + same seeds); only input file changes (E6B_ROI env override added pre-run; mechanical, no logic).
+Scale rule stated before run: each ROI self-calibrated — injections are multiples of THAT ROI's measured closure sigma (the whole point is where the curve crosses relative to its own noise).
+G-E8 gate: if GLR-energy AUROC >= 0.9 at level <= 3 x own-closure-sigma -> E7 channel-physics verdict was ROI-specific; WRITEUP claim narrowed to "effective MDB is per-ROI, never assume universal 2-3xRMS". Else -> 4-5x crossing REPLICATED, claim stands as written. No tuning either way.
+
+
+
+## E8 RESULT (2026-11-09; e8_glr.py, e8_results.txt, e8_{meas,sigma}.npz) - ONE-SHOT external replication
+ROI_3576-5232-35.tiff (740,048,035 B exact), distant region of same HeLa pellet block; own closure sigma (1.459,1.469) px emitted first (smaller than ROI1s 1.78/1.66 - different local deformation regime, disclosed). GLR-energy M_edge: AUROC 0.593/0.696/0.823/0.881/0.927 at {0.5,1,2,3,5} x own sigma.
+G-E8 VERDICT (frozen): >=0.9 at <=3 NOT met -> **4-5x crossing REPLICATED**; E7 channel-physics verdict stands across two independent regions. Secondary observation (not a gate): even self-calibrated to own closure sigma the curves do not collapse perfectly (sigma 1.46 vs 1.78 but crossings ~4.5-5 both) - per-ROI scale estimation via triangle closures is itself imperfect under deformation; strengthens "measure, never assume" claim.
+
 ## E-SERIES FINAL SYNTHESIS (rounds 4-11, 6 frozen runs: p1, characterize, probe_e3b, e4_triage, e5_bearing + oracle legs)
 Across FOUR statistic families (SE(2)-H^1 holonomy, anchored-LS residual in SE(2) frames, bearing-cycle sum, anchored-LS on bearings), TWO observable classes (SE(2) relative pose, bearings+compass) and anomaly magnitudes from matched-noise to 8-sigma: at P1-matched magnitudes EVERY detector gate failed (AUROC 0.48-0.70 band); the ONLY stable signal is the H^1/cycle channel on rotation-bearing defects (0.627-0.670, replicated x3, consistent across observables — theory ceiling ~0.63 at matched SNR explains it); view-class desync becomes detectable ONLY when |anomaly| >= ~2-3x combined noise (E3b rule; oracle 0.999 at clean frames proves observables+magnitude, not structure, is the binding constraint). FINAL THESIS: detection in registration-style scaffolds is an MDB-curve problem (Baarda): report per-channel minimum-detectable-bias vs anomaly class, never a single AUROC headline. SciViz consequence: natural-magnitude stitching/desync anomalies are below any same-architecture detector's MDB; QC needs coarser engineered anchors or magnitude-targeted specs. E-series CLOSED.

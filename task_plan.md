@@ -21,6 +21,7 @@ Premise (from verified-real cluster arXiv 2605.16785 / 2601.15320 / 2511.11092):
 - [x] Round 15 (2026-11-09) — E6b executed one-shot: closure sigma (1.78,1.66) px pre-emitted; M_edge MDB curve .59/.71/.83/.87/.93; N_shift exactly 0.500 (P1 gauge confirmed on real data). G-E6 NOT met -> edge-triage falsified at <=3 sigma; curve thesis + view-gauge blindness confirmed. See findings E6b RESULT.
 
 - [x] Round 16 (2026-11-09) — E7 GLR-energy one-shot: 0.890@3sigma still <0.9 -> CHANNEL PHYSICS verdict; industry 2-3xRMS heuristic falsified on deformation-dominated channel; detector worth <=+.03.
+- [x] Round 17 (2026-11-09) — E8 external replication on second ROI (3576-5232-35, 740MB exact): GLR 0.59/0.70/0.82/0.88/0.93 x own closure sigma (1.46px) -> gate missed again <=3 -> 4-5x crossing REPLICATED; channel-physics verdict stands. e6_measure docstring corruption from failed patch repaired; mechanical env overrides only.
 
 ## Gate
 - P1 kill criterion pre-registered: sheaf H^1 desync detection must beat consistency-radius baseline AUROC by >= 0.05 else project archived as NULL with writeup (negative results count).

@@ -7,8 +7,8 @@ sys.path.insert(0, os.path.dirname(__file__))
 from run_p1 import auroc
 
 HERE = os.path.join(os.path.dirname(__file__), "..")
-D = np.load(os.path.join(HERE, "e6b_meas.npz")); ADJ, GLO = D["ADJ"], D["GLO"]
-S = np.load(os.path.join(HERE, "e6b_sigma.npz")); SIGC = S["sig"]; MED = S["med"]
+D = np.load(os.environ.get("E6B_MEAS_NPZ") or os.path.join(HERE, "e6b_meas.npz")); ADJ, GLO = D["ADJ"], D["GLO"]  # env override for E8 ROI2
+S = np.load(os.environ.get("E6B_SIGMA_NPZ") or os.path.join(HERE, "e6b_sigma.npz")); SIGC = S["sig"]; MED = S["med"]
 NW, K = ADJ.shape[0], ADJ.shape[1]
 LEVELS = (0.5, 1.0, 2.0, 3.0, 5.0)
 
