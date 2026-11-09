@@ -16,6 +16,9 @@ Premise (from verified-real cluster arXiv 2605.16785 / 2601.15320 / 2511.11092):
 
 - [x] Round 12 (2026-11-09) — E6 real-data source hunt + PRE-REGISTRATION: EMPIAR-10478 selected via API verification (HeLa SBF-SEM benchmark ROIs, CC, adjacent-frame pairs = real translation channel); gates = single thesis-falsifying MDB rule (detect <=3x sigma_t both classes or synthesis falsified on real data). Spec in findings.md. NO download/execution yet.
 - [ ] Round 13 — download ONE ROI (~0.9 GB) from EBI EMPIAR; measure real pairwise translation noise sigma_t (phase correlation, 512x512 crops, first 100 adjacent pairs); emit sigma BEFORE injections.
+- [x] Round 13 (2026-11-09) — ROI downloaded (576MB exact; file has 151 frames not 300 - disclosed), real noise leg executed BEFORE injections: sigma_t lag-30 = (2.65,1.48) px anisotropic, drift median (-0.92 y); confound disclosure (scatter includes physical deformation = QC noise definition) in findings.md. `src/e6_measure.py`, `e6_pairs_lag30.npz`.
+- [ ] Round 14 — E6 trials: k=6 consecutive-pair cycles x40 per class x levels {0.5,1,2,3,5}x sigma_t, D_hol + D_anchor verbatim (rotation legs N/A), AUROC vs null per level, bootstrap CI -> G-E6 verdict.
+
 
 ## Gate
 - P1 kill criterion pre-registered: sheaf H^1 desync detection must beat consistency-radius baseline AUROC by >= 0.05 else project archived as NULL with writeup (negative results count).
