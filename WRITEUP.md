@@ -29,5 +29,7 @@ On 86 real windows (adjacent lag-10 + wide-baseline global phase-correlation row
 - Rigid one-node desync (view class, all its rows consistently shifted): AUROC exactly 0.500 at every amplitude — the gauge theorem (P1) is not an artifact of synthetic generators; relative content measurements are structurally blind to view-class displacement, at any SNR.
 - One instrument defect was caught mid-round by a frame-free fixture (self-referential anchors made the detector exactly flat) and disclosed pre-verdict: E6 first run voided as DGP modeling error, corrected in E6b before any gate result informed a choice.
 
+E7 addendum: swapping the max-abs detector for the GLR-optimal chi2-energy statistic moves AUROC by <= +0.025 at every level (gate still missed at 3x, 0.890) -> the ~4-5x crossing is channel physics (deformation-inflated noise floor), not detector choice. The standard photogrammetry ">2-3x RMS prune" practice is falsified for deformation-dominated channels; it implicitly assumes Gaussian-matched noise with deformation excluded from the scale estimate.
+
 ## Integrity record (updated)
 Every gate in findings.md pre-registration sections (rounds 6, 8, 10) predates its run; frame-convention ambiguity disclosed and resolved by reporting BOTH faithful readings (E3b); oracle legs are labeled post-hoc diagnostics, never re-gates; E5 spec correction recorded before implementation with no numbers seen. Git: one commit per round, verdict in message (`4dc8a7a` .. `7052843`).
