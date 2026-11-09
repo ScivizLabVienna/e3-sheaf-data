@@ -1,0 +1,10 @@
+n=240 pos+neg; k rotates 5/6/7
+AUROC all : sheaf=0.545 baseline=0.513 delta(sheaf-baseline)=+0.033
+AUROC s15 : sheaf=0.555 baseline=0.492 delta(sheaf-baseline)=+0.062
+AUROC s25 : sheaf=0.536 baseline=0.533 delta(sheaf-baseline)=+0.003
+delta CI95 = [-0.061, +0.132]  gate: survive iff delta >= +0.05 (pre-registered)
+fixture (d=0.30): null pairwise 0.158 ls 0.057 | PRE-anchors 0.484 0.154 | POST-anchors 0.371 0.102
+fixture OK (instrument responds to cross-channel disagreement)
+E3b ONE-SHOT gate arm: pairwise AUROC = 0.488 | LS AUROC = 0.481   (gate: survive iff >= 0.85)
+post-desync anchors DIAGNOSTIC: pairwise 0.488 / LS 0.481 (expected ~chance: same channel cannot see desync)
+ORACLE-LS ceiling (post-hoc diagnostic, TRUE angles): null mean 0.143 | pos mean 0.153 -> AUROC = 0.572

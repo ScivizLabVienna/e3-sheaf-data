@@ -88,3 +88,36 @@ Three claims, each measured:
 
 **E3 final deliverable:** negative result + measured two-sided characterization: on registration-cycle scaffolds, H^1 holonomy (phase-preserving) detects measurement-level closure defects near information-optimal, is structurally blind to view-level translation desync for *all* cycle statistics including robust variants, and scalar harmonic energy additionally throws away the phase needed to approach that optimum at practical SNR. Anchor/absolute constraints (H^0 gauge fixing) remain the future-spec requirement for view-desync detection.
 
+
+## lit-scan 2026-11-08b (round 6; step = anchor-spec positioning) — 4 searches, budget 6
+- arXiv:2608.06885 — "Rigid-Covert GNSS Spoofing of UAV Swarms: A Structural Blind Spot, Its Detection Limit, and Absolute-Anchor Defenses": proved Prop.1 (any relative-only detector is blind to common-mode translation = our gauge mechanism) and Prop.2 (>=1 absolute anchor restores translation observability; >=2 for rigid motion), plus a detection floor set by anchor drift rate — adopt: this *is* E3's future-spec literature basis; E3b probe below cites it; anchor-residual detector bound = spec template. [API-verified, submitted 2026-08]
+- arXiv:1910.05505[=1910.05509] "A Computational Theory of Robust Localization Verifiability..." — l1 recovery depends only on measurement-graph topology + outlier support/sign: cycle/anchor topology decides recoverability, mirrors our scaffold-first stance — park. [API-verified as 1910.05509]
+- arXiv:1801.02112 (Carlone et al.) convex relaxations PGO w/ outliers; two-stage estimate+residual-threshold outlier detection = the strong non-sheaf baseline for any anchor spec — adopt as E3b/E4 baseline template. [API-verified]
+- Geodesy classics (no arXiv; cited by venue): free-network adjustment / datum-defect inner constraints (Teunissen 1984; Deakin notes) and extended S-transformation for deformation analysis — H^0 gauge fixing with named 50-year formalism; "anchor disagreement between epochs" = their inter-campaign datum drift. Adopt for writeup framing.
+- FAR LENS music theory (voice-leading/cantus firmus): one sentence — a view shifted against an independent fixed reference is exactly a voice discordant against the cantus, detectable only relative to it; instantiates Prop.2 intuitively but adds no machinery → dropped per rule.
+
+## E3b — anchor-channel feasibility probe: SPEC + PRE-REGISTRATION (2026-11-08 round 6, written before run)
+Rationale: P1 NULL established cycle statistics are blind to view-level desync (gauge). 2608.06885 Prop.2 says an *independent* absolute channel restores observability. SciViz analog = GCPs/control markers in photogrammetry. This probe validates the mechanism end-to-end on our exact P1 substrate before any E4-style commitment; NOT a sheaf-vs-baseline gate (literature shows any anchor-residual detector works; champion question deferred).
+Frozen design (one-shot, deterministic seeds 0..239): k=5+seed%3 cycle exactly as run_p1 trial(); view-level desync on ONE view (same axis/offset convention and strengths as P1: positives s in {1.5,2.5} alternating, nulls s=0; rotation noise .05 rad, translation sigma .10). **Anchors:** every view i gets an absolute 2-D position observation a_i = (true PRE-desync translation) + N(0, .10^2 I) — the independent-channel assumption is exactly what "anchor" must mean. Detector (both arms same fit): LS translations using measured relative edges (weight 1/sigma^2) plus anchors (same weight, unrotated frame), rotations fixed at measurements; score = max_i ||anchor_i - fit_pos_i||.
+Frozen gate: E3b spec VALID iff AUROC(anchor residual) >= 0.85 on aggregate positives vs nulls. Desynced-anchor DIAGNOSTIC (recorded, not gated): anchors drawn POST-desync (same channel => internally consistent by construction). No tuning after the run; one number decides.
+
+## E3b RESULT — one-shot NULL (executed 2026-11-09 round 7; `src/probe_e3b.py` + `probe_e3b_results.txt`)
+Frozen-gate reading (PRIMARY, literal spec text "LS translations ... rotations fixed at measurements; score = max_i ||anchor_i - fit_pos_i||"):
+**AUROC = 0.481 < 0.85 -> E3b spec NULL.** Alternate faithful reading (max pairwise disagreement anchor-vs-rotated-edge-observation): AUROC = 0.488.
+The pre-registration fixed the score formula but left the frame convention for rotating measured local edge vectors ambiguous under noisy angles;
+BOTH readings were computed from the frozen generator before any verdict, both fail far below gate -> one-shot stands under either reading. No tuning applied after.
+DIAGNOSTIC (as pre-registered): anchors drawn POST-desync AUROC 0.481/0.488 — same-channel anchors cannot point at the desynced view, floor-only as expected.
+
+**Post-hoc oracle ceiling (diagnostic, added AFTER the one-shot number — explains WHY, does not re-gate):** rotating measured edge obs by TRUE
+per-view angles and pooling via the same anchored LS gives null mean 0.143 / pos mean 0.153 -> AUROC 0.572 even with perfect frames. The generator is a
+faithful P1 twin (RNG draw sequence identical to run_p1.trial; verified in-process via returned truth). Mechanism: per-trial anchor channel information
+about a single-view shift d scales with |d| relative to the combined noise floor sigma_anchor-pair + sigma_edge-chain (~0.3 at P1-matched settings);
+P1 s=1.5/2.5 gives |d| = 0.15/0.25 -> ratio < 1, i.e. BELOW the pre-registered 0.85 requirement no matter the estimator. Frame-free fixture (all rotations zero)
+separates cleanly at d = 0.30 (null LS max-resid 0.057 vs desync+PRE-anchor 0.154, matching LS-split theory ~d/3): the instrument works whenever |d| >~ 2x noise —
+the P1-matched regime simply does not provide it.
+
+**Quantitative design rule shipped by E3b (transferable):** an absolute-anchor channel detects view-level desync at AUROC >= 0.85 only when
+|desync| >= ~2-3 x combined anchor/chain noise; real-world anchors work because anomalies are engineered >> noise (GNSS spoofing meters vs dm noise, 2608.06885
+detection floor; GCP residuals in photogrammetry). Under P1-matched anomaly-amplitude-equals-noise conditions NO channel of the substrate beats scalar energy
+(E3 round-5: scalar already near-optimal), so anchor residual adds nothing there either. E3 negative-result arc now complete and mechanistically explained at
+BOTH levels: gauge blindness (structural, P1+characterize) AND information poverty of the anchor channel at matched SNR (E3b).
