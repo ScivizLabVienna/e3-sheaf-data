@@ -1,0 +1,17 @@
+{
+  "title": "Computable sheaf-inconsistency detection for volume-EM registration: negative results and a view-gauge theorem",
+  "creators": [{"name": "SciVizLab Vienna"}],
+  "publisher": "SciVizLab Vienna",
+  "publication_date": "2026-11-10",
+  "language": "eng",
+  "license": "CC-BY-4.0",
+  "version": "v0.1-preprint-snapshot",
+  "upload_type": "software",
+  "communities": [{"identifier": "scivizlabvienna"}],
+  "keywords": ["sheaf theory", "coboundary", "volume EM", "registration QC", "minimum detectable bias", "pre-registered negative results"],
+  "description": "<p>Pre-registered negative-result study: cohomological (1-coboundary) inconsistency as a QC detector for serial-section registration, evaluated on three real volume-EM channels (EMPIAR-10478 HeLa SBF-SEM, two ROIs; EMPIAR-10070 FIB-SEM muscle). Findings: (1) view-gauge theorem confirmed empirically (shift-channel anomaly AUROC exactly 0.500 at all amplitudes); (2) minimal detectable bias is channel-physics-bound, falsifying the &gt;2-3x RMS prune heuristic on all three channels; (3) instrument-disclosure protocol caught a self-referential-anchor defect by algebraic gauge proof before any gate result. Six frozen one-shot runs, exact-byte data provenance in git.</p><p><b>Note:</b> v0.1 preprint snapshot; author list pending operator review.</p>",
+  "related_identifiers": [
+    {"identifier": "10.6019/EMPIAR-10478", "relation": "isSupplementTo", "resource_type": "dataset"},
+    {"identifier": "10.6019/EMPIAR-10070", "relation": "isSupplementTo", "resource_type": "dataset"}
+  ]
+}
