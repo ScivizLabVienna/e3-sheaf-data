@@ -1,6 +1,7 @@
 \documentclass[10pt]{article}
 \usepackage[margin=1in]{geometry}
 \usepackage{booktabs}
+\usepackage{graphicx}
 \usepackage{amsmath,amssymb}
 \usepackage[colorlinks=true,linkcolor=blue,urlcolor=blue]{hyperref}
 \usepackage{xurl}
@@ -43,6 +44,7 @@ Instrument (E6b): independent global-reference legs by wide-baseline $(+30$-fram
 
 \section{Results}
 \begin{table}[h]\centering\small
+\label{tab:mdb}
 \caption{Closure $\sigma_c$ and GLR AUROC at $\{0.5,1,2,3,5\}\times\sigma_c$ (bootstrap CIs in artifacts). N\_shift: $0.500$ exactly at all levels (ROI1).}
 \begin{tabular}{@{}llccccc@{}}
 \toprule
@@ -54,7 +56,12 @@ FIB-SEM  & 0.11 / 0.14 & 0.571 & 0.586 & 0.628 & 0.666 & 0.737\\
 \bottomrule
 \end{tabular}
 \end{table}
-No channel meets the gate at $\leq 3\times$; both SBF ROIs cross $0.9$ only between $3\times$ and $5\times$ (E8 replicates E6/E7 on a distant ROI). GLR energy beats max-abs by $\leq +0.025$ AUROC everywhere: the curve is channel physics, not detector suboptimality. FIB-SEM inverts the mechanism --- vendor pre-registration drives $\sigma_c$ two orders of magnitude down, and redundancy dilution (Proposition) plus absolute-scale mismatch leave AUROC $<\!0.9$ even at $5\times$. \emph{Closure-$\sigma$ self-calibration does not normalize detection across channels.}
+\begin{figure}[h]\centering
+\includegraphics[width=0.72\textwidth]{fig1_mdb.pdf}
+\label{fig:mdb}
+\caption{MDB level curves for the injected M\_edge defect on all three channels (GLR detector; markers from the committed result artifacts, error bars are the pre-registration-frozen bootstrap CIs). The frozen gate (0.9 at $\leq 3\times$) is missed everywhere; SBF crosses between $3\times$ and $5\times$, FIB-SEM has not reached $0.9$ by $5\times$.}
+\end{figure}
+Table~\ref{tab:mdb} and Figure~\ref{fig:mdb} report the level curves. No channel meets the gate at $\leq 3\times$; both SBF ROIs cross $0.9$ only between $3\times$ and $5\times$ (E8 replicates E6/E7 on a distant ROI). GLR energy beats max-abs by $\leq +0.025$ AUROC everywhere: the curve is channel physics, not detector suboptimality. FIB-SEM inverts the mechanism --- vendor pre-registration drives $\sigma_c$ two orders of magnitude down, and redundancy dilution (Proposition) plus absolute-scale mismatch leave AUROC $<\!0.9$ even at $5\times$. \emph{Closure-$\sigma$ self-calibration does not normalize detection across channels.}
 
 \section{Discussion}
 \textbf{Operational rule.} The field practice of pruning registration residuals above $2$--$3\times$RMS~\cite{wang14} implicitly assumes noise-dominated channels; in deformation-dominated volume EM it both hides real defects (SBF) and flags benign sub-pixel residuals as unremarkable without information (FIB-SEM). Thresholds must be absolute per-task tolerances. The same caveat applies to calibration of learned QA metrics~\cite{emsiqa,savior}.
