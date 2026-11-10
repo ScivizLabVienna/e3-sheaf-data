@@ -215,6 +215,14 @@ G-E8 VERDICT (frozen): >=0.9 at <=3 NOT met -> **4-5x crossing REPLICATED**; E7 
 
 
 
+## Round-21 lit-scan: novelty collision check (2026-11-10, pre-submission)
+
+No prior use of coboundary/closure-residual scoring as an anomaly detector in volume-EM registration found. Nearest neighbours (all verified: arXiv export API / Crossref):
+- **ADJACENT**: Carlino et al. 2022, arXiv:2208.07103 — loop-closure error for point-cloud registration *removed* via Poisson/Hodge; treats cocycle defect as a global solve input, never as per-edge QC, and no MDB curve. Position as ancestor of the formalism.
+- **DIRECT competitor field**: EM stitching QA exists but is learned/pairwise: EMSIQA (Shi et al. 2024, NSF 10578414), DEMIS OFSIQA (Silling, SciTePress 2025), JSEE 2026 doi:10.23919/jsee.2026.000050 (learned features), SAVIOR doi:10.1016/j.neucom.2025.132038 (VLM, Nov 2025). None is gauge-equivariant or pre-registered; our channel-physics result (no scale-free threshold transfers) applies to their calibration too — cite and attack in related work.
+- **FAR LENS**: arXiv:2606.04227 incremental H^1 (algorithmic, no data application), arXiv:2603.11806 diffeomorphism groupoids for sliding discontinuities (registration theory, no QC). No threat to priority; both safe background cites.
+Verdict: positioning is defensible — novelty framed as *operational + negative*, not "first sheaf on images".
+
 ## E9 PRE-REGISTRATION (2026-11-09, BEFORE download completion/run; one-shot cross-technique validation)
 Target: EMPIAR-10070 (MITOMAP; Glancy 2015 Nature) b3talongmusc20130301.mrc, 777,443,899 B verified via HEAD + MRC header read (291 x 1595x1675 uint8, 50nm xy / ~15nm z). Different sample (mouse skeletal muscle), different technique (FIB-SEM ablation, not knife SBF), different contrast. Caveat disclosed pre-run: stack is vendor-registered ("aligned stack", TTrAC) -> measured offsets = post-registration residuals + texture = exactly the production-stitcher input regime; no true-angle ground truth (G3-style check skipped for E9).
 Pipeline frozen (e6b_measure with mechanical MRC reader branch added pre-run + e7 GLR-energy detector, same seeds, self-calibrated to THIS stack's closure sigma). G-E9 gate: GLR AUROC >= 0.9 at <=3 x own closure sigma -> channel-physics finding is SBF-specific (claim narrows again); else -> REPLICATED across techniques, claim stands as written.
