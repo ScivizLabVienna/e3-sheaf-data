@@ -35,5 +35,7 @@ E8 replication: the same frozen pipeline on a SECOND, distant ROI of the block (
 
 E9 cross-technique: on pre-registered FIB-SEM muscle (EMPIAR-10070) the closure sigma is ~0.1 px - 15x below the SBF ROIs - and no relative level up to 5x reaches AUROC 0.9 either. Together the three channels show the closure-sigma scale spans two orders of magnitude across techniques while detection always fails at the pre-registered <=3x rule: sigma-multiple thresholds are not transportable; QC needs absolute tolerances set by downstream task, with residuals normalized per-channel only for ranking within a dataset.
 
+E9 data limitation: the FIB-SEM stack's shifts were baked in by NEWSTACK before MRC conversion; the extended header carries only history labels (verified by direct byte read), so no independent true-angle/anchor ground truth exists for this dataset and the E4-style oracle ceiling comparison could not be run there. Absence of ground truth is a property of the archives, not of the method; the two SBF ROIs with usable independent global legs remain the quantitative benchmark.
+
 ## Integrity record (updated)
 Every gate in findings.md pre-registration sections (rounds 6, 8, 10) predates its run; frame-convention ambiguity disclosed and resolved by reporting BOTH faithful readings (E3b); oracle legs are labeled post-hoc diagnostics, never re-gates; E5 spec correction recorded before implementation with no numbers seen. Git: one commit per round, verdict in message (`4dc8a7a` .. `7052843`).
