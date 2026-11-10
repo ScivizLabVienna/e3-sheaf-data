@@ -1,0 +1,7 @@
+fixture null 0.00 inj 0.01
+GLR level 0.5: AUROC 0.571 CI[0.518,0.623]
+GLR level 1.0: AUROC 0.586 CI[0.534,0.638]
+GLR level 2.0: AUROC 0.628 CI[0.577,0.678]
+GLR level 3.0: AUROC 0.666 CI[0.617,0.713]
+GLR level 5.0: AUROC 0.737 CI[0.693,0.779]
+VERDICT: no level <=3 -> CHANNEL PHYSICS verdict

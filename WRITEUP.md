@@ -33,5 +33,7 @@ E7 addendum: swapping the max-abs detector for the GLR-optimal chi2-energy stati
 
 E8 replication: the same frozen pipeline on a SECOND, distant ROI of the block (own closure sigma 1.46 px vs 1.78 px) gives AUROC 0.59->0.93 across 0.5-5x own noise, crossing 0.9 at ~4-5x again - the channel-physics finding is not a one-region artifact. Triangle-closure self-calibration also fails to collapse the curves between regions, i.e. per-ROI noise-scale estimation under deformation is itself approximate: an operational warning for anyone setting prune thresholds from closure statistics.
 
+E9 cross-technique: on pre-registered FIB-SEM muscle (EMPIAR-10070) the closure sigma is ~0.1 px - 15x below the SBF ROIs - and no relative level up to 5x reaches AUROC 0.9 either. Together the three channels show the closure-sigma scale spans two orders of magnitude across techniques while detection always fails at the pre-registered <=3x rule: sigma-multiple thresholds are not transportable; QC needs absolute tolerances set by downstream task, with residuals normalized per-channel only for ranking within a dataset.
+
 ## Integrity record (updated)
 Every gate in findings.md pre-registration sections (rounds 6, 8, 10) predates its run; frame-convention ambiguity disclosed and resolved by reporting BOTH faithful readings (E3b); oracle legs are labeled post-hoc diagnostics, never re-gates; E5 spec correction recorded before implementation with no numbers seen. Git: one commit per round, verdict in message (`4dc8a7a` .. `7052843`).

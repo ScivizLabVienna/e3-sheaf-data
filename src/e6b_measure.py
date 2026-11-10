@@ -11,7 +11,14 @@ K, GLAG, ALAG = 6, 30, 10
 
 
 def measure():
-    vol = tf.memmap(PATH, mode="r"); NF = vol.shape[0]; nwin = NF - (K + GLAG) + 1  # NF from file (was hardcoded 151; second ROI frame count differs)   # windows fully inside file: start i, nodes i..i+K, globals to i+GLAG<=150 -> i <= 151-K-GLAG=139... careful: global pair (node i+m, ref i+GLAG): both frames exist iff i+GLAG<151; window needs i+K<151 too
+    if PATH.lower().endswith(".mrc"):  # E9: uint8 MRC reader; header NX/NY/NZ at bytes 0-12, data after 1024-byte header
+        import struct
+        h = open(PATH, "rb").read(256); nx, ny, nz = struct.unpack("<3i", h[:12])
+        assert struct.unpack("<i", h[12:16])[0] == 0, "E9 MRC must be mode 0 (uint8)"
+        vol = np.memmap(PATH, dtype=np.uint8, mode="r", shape=(nz, ny, nx), offset=1024)
+    else:
+        vol = tf.memmap(PATH, mode="r")
+    NF = vol.shape[0]; nwin = NF - (K + GLAG) + 1  # NF from file (was hardcoded 151; second ROI frame count differs)   # windows fully inside file: start i, nodes i..i+K, globals to i+GLAG<=150 -> i <= 151-K-GLAG=139... careful: global pair (node i+m, ref i+GLAG): both frames exist iff i+GLAG<151; window needs i+K<151 too
     ADJ = np.zeros((nwin, K, 2)); GLO = np.zeros((nwin, K + 1, 2))
     cache = {}
     for i in range(nwin):

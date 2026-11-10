@@ -22,6 +22,7 @@ Premise (from verified-real cluster arXiv 2605.16785 / 2601.15320 / 2511.11092):
 
 - [x] Round 16 (2026-11-09) — E7 GLR-energy one-shot: 0.890@3sigma still <0.9 -> CHANNEL PHYSICS verdict; industry 2-3xRMS heuristic falsified on deformation-dominated channel; detector worth <=+.03.
 - [x] Round 17 (2026-11-09) — E8 external replication on second ROI (3576-5232-35, 740MB exact): GLR 0.59/0.70/0.82/0.88/0.93 x own closure sigma (1.46px) -> gate missed again <=3 -> 4-5x crossing REPLICATED; channel-physics verdict stands. e6_measure docstring corruption from failed patch repaired; mechanical env overrides only.
+- [x] Round 18 (2026-11-09) — E9 cross-technique FIB-SEM (EMPIAR-10070, 291fr exact): closure sigma 0.11px (vendor-pre-registered), GLR 0.57->0.74 across 0.5-5x own sigma, gate missed -> no scale-free rule transfers; absolute-tolerance consequence.
 
 ## Gate
 - P1 kill criterion pre-registered: sheaf H^1 desync detection must beat consistency-radius baseline AUROC by >= 0.05 else project archived as NULL with writeup (negative results count).
