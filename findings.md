@@ -215,6 +215,22 @@ G-E8 VERDICT (frozen): >=0.9 at <=3 NOT met -> **4-5x crossing REPLICATED**; E7 
 
 
 
+## E10 PRE-REGISTRATION (2026-11-10, written BEFORE run) - pairwise photometric QA baseline proxy
+
+Motivation: operator asked publishability check; the one predictable reviewer rejection is 'no empirical comparison to existing stitching-QA metrics'. Public EMSIQA/OFSIQA implementations are not locally available; we re-implement their published recipe (masked mean |difference| over aligned overlap, i.e. residual-flow magnitude) as an image-domain BASELINE PROXY and disclose it as such.
+
+Instrument: ROI1 frames (frozen file), 60 random adjacent pairs (frame j,j+1), central windows w of 512x512, 4 windows/pair => N=240 clean pairs. Stitch offsets = measured pair offsets from e6b pipeline. Structure mask per window: |grad| median-split (no Otsu; simpler monotone proxy for 'cellular structure' weighting). Score s(p) = masked mean |A - shift(B, m_p + d)| over mask. Null: d=0 all pairs. M_edge trial mirrors e6b: K=6 consecutive-pair windows, one edge gets defect shift delta drawn from the FROZEN e6b sigma (1.784, 1.659) px x level {0.5,1,2,3,5}, random sign; both touching pairs misaligned. Same seeds as e6b_trials where formats align. N_shift class omitted by design: pairwise same-view scores gauge it away exactly (same theorem, different mask). 40 trials/level.
+
+GATE G-E10 (frozen): proxy max-AUROC over levels >= 0.9 at level <= 3x sigma_c => pairwise baseline beats the sheaf channel and the paper's claim needs re-framing to include a comparative loss row. Else (< 0.9, matching GLR's own miss) => tie/loss for baseline at matched relative scale; Table 1 gains a baseline-proxy column and the workshop gap is itemized. Descriptive only, no post-hoc threshold shopping.
+
+Cost: local CPU on already-downloaded ROI1. One shot, no tuning after verdict.
+
+## E10 RESULT (round 24, 2026-11-10) - baseline-proxy vs sheaf channel: tie/loss for baseline
+
+VERDICT (gate G-E10): proxy max-AUROC over levels <=3x = 0.530 < 0.9 -> comparative row for Table 1. Numbers: {0.5:0.415, 1:0.340, 2:0.375, 3:0.530, 5:0.668} (N=360 clean pairs ROI1; null mean score 29.26). GLR reference at 3x = 0.890 -> pairwise photometric QA misses the gate by even more than our channel.
+Observational disclosure (not gated): raw (un-normalized) masked-difference scores carry large between-pair texture variance; that is exactly why published EMSIQA/OFSIQA practice z-scores per pair/per dataset before thresholding, and any such normalization changes the frozen statistic -> reported as caveat, not re-gated. Proxy = faithful recipe (structure-masked mean |diff| of aligned overlap) but not the public codebase; cited-comparison remains honest at recipe level.
+Consequence: publishability gap itemized earlier ('no baseline comparison') is now closed at proxy level; a public-codebase head-to-head (needs network+env, EMSIQA repo unverified local) stays full-paper scope.
+
 ## Round-21 lit-scan: novelty collision check (2026-11-10, pre-submission)
 
 No prior use of coboundary/closure-residual scoring as an anomaly detector in volume-EM registration found. Nearest neighbours (all verified: arXiv export API / Crossref):

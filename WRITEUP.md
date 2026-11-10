@@ -39,3 +39,8 @@ E9 data limitation: the FIB-SEM stack's shifts were baked in by NEWSTACK before 
 
 ## Integrity record (updated)
 Every gate in findings.md pre-registration sections (rounds 6, 8, 10) predates its run; frame-convention ambiguity disclosed and resolved by reporting BOTH faithful readings (E3b); oracle legs are labeled post-hoc diagnostics, never re-gates; E5 spec correction recorded before implementation with no numbers seen. Git: one commit per round, verdict in message (`4dc8a7a` .. `7052843`).
+
+## E10 pairwise-QA baseline proxy (round 24)
+
+Reviewer-risk closure: EMSIQA/OFSIQA-style masked-mean |diff| pairwise score re-implemented on ROI1 (360 clean pairs), trials mirroring e6b in image domain. Level AUROC {0.5:0.415, 1:0.340, 2:0.375, 3:0.530, 5:0.668}; gate G-E10 not met -> pairwise photometric QA does NOT beat the sheaf channel at matched relative scale (GLR 3x = 0.890 for reference). Caveat disclosed in findings.md (raw-score texture variance; published practice z-normalizes per pair, which changes the frozen statistic). Public-codebase head-to-head remains full-paper scope.
+

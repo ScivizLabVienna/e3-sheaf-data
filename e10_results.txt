@@ -1,0 +1,7 @@
+N pairs (window starts x K) = 360; fixture null mean 29.26
+E10 baseline-proxy level 0.5: AUROC 0.415 CI[0.348,0.482]
+E10 baseline-proxy level 1.0: AUROC 0.340 CI[0.272,0.408]
+E10 baseline-proxy level 2.0: AUROC 0.375 CI[0.310,0.438]
+E10 baseline-proxy level 3.0: AUROC 0.530 CI[0.461,0.602]
+E10 baseline-proxy level 5.0: AUROC 0.668 CI[0.607,0.724]
+VERDICT: tie/loss for baseline at matched relative scale -> Table-1 comparative column
