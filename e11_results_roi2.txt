@@ -1,0 +1,10 @@
+N null windows = 120; chi2-energy null rms = 16.3
+tau 1.5 (thr 24.5): FPR 0.067 | recall 0x:0.20 1x:0.35 2x:0.58 3x:0.74 5x:0.85
+tau 2.0 (thr 32.7): FPR 0.025 | recall 0x:0.12 1x:0.23 2x:0.48 3x:0.63 5x:0.79
+tau 2.5 (thr 40.8): FPR 0.008 | recall 0x:0.06 1x:0.16 2x:0.38 3x:0.56 5x:0.74
+tau 3.0 (thr 49.0): FPR 0.000 | recall 0x:0.03 1x:0.13 2x:0.28 3x:0.50 5x:0.67
+tau 3.5 (thr 57.2): FPR 0.000 | recall 0x:0.02 1x:0.12 2x:0.27 3x:0.46 5x:0.63
+tau 4.0 (thr 65.3): FPR 0.000 | recall 0x:0.01 1x:0.10 2x:0.25 3x:0.42 5x:0.62
+C1 (recall<0.5 @tau{2,3}, levels<=3x): VIOLATED
+within-channel FPR drop ratio tau2/tau4 = 25000000.0x; C2 needs cross-channel run summary (this process = one channel; compare e11 outputs of all three)
+tau* (FPR<=0.01) = 2.5

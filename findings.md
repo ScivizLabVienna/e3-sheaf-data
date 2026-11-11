@@ -225,6 +225,17 @@ GATE G-E10 (frozen): proxy max-AUROC over levels >= 0.9 at level <= 3x sigma_c =
 
 Cost: local CPU on already-downloaded ROI1. One shot, no tuning after verdict.
 
+## E11 RESULT (round 26, 2026-11-10) - prune sweep: C1 VIOLATED on SBF / HOLDS on FIB-SEM; no universal tau
+
+Honest disclosure: my own pre-registered C1 (recall<0.5 at tau 2-3, levels<=3x) was FALSIFIED on both SBF ROIs (recall 0.53-0.74 there - hard threshold on chi2 energy catches more than predicted; injected 2-3x residuals sit far in the chi2 tail relative to null RMS) and CONFIRMED on FIB-SEM (max recall 0.31@3x, 0.41@5x even at tau=1.5). Not re-gated post-hoc; the surviving quantitative deliverables: (a) tau*(FPR<=0.01) = 2.5 SBF ROI1/ROI2, 3.0 FIB-SEM -> channel-specific; (b) at matched FPR budget ~1-5%, SBF recall@3x = 0.55-0.74 vs FIB-SEM 0.08-0.19: same published rule delivers opposite operational outcomes across techniques -> 'budget-driven, not rule-driven'; (c) null RMS badly underestimates the chi2 tail (tau=1.5 already yields 4.7-12.8% false flags) - practitioners' implicit assumption in the 2-3x heuristic is violated on deformation-dominated channels too. Paper abstract+discussion now carry these numbers instead of the bare 'falsified'/'misses real defects' phrasing (pre-review fix 4 CLOSED).
+
+## E11 PRE-REGISTRATION (2026-11-10, written BEFORE run) - RMS-pruning threshold sweep (R26 / PRE_REVIEW fix 4)
+
+Question: quantify what a hard residual-prune rule at tau x (null RMS) actually buys, replacing the bare 'falsified' assertion with recall/FPR curves.
+Frozen statistic: E7 GLR chi2 energy per window on frozen e6b/e8/e9 instruments+seeds (no new detector). Fixture-null scores = calibration set (what a practitioner uses to estimate the RMS); Prune rule: flag window if score >= tau * rms(null), tau in {1.5,2,2.5,3,3.5,4}. Recall(tau,lvl) = flag rate on the frozen trial score sets at that injection level; FPR(tau) = flag rate on held-out null (same pool used for calibration; disclosed, no separate holdout exists).
+PRE-REGISTERED CLAIMS to test (frozen): C1 recall < 0.5 at tau in {2,3} for every channel at levels <= 3x sigma_c (prune regime of the literature misses most real defects). C2 FPR across channels spans >5x between tau=2 and tau=4 (no universal tau: published 2-3x practice is not transferable). Guideline deliverable: tau* = smallest tau with FPR <= 0.01 per channel, reported as absolute rule-of-thumb. Descriptive sweep, no pass/fail gate; one-shot; outputs table e11_results.txt on all three channels (>=20 null windows guaranteed: NW-30 >= 109 SBF, ~1600 FIB-SEM).
+Cost: reuses frozen npz artifacts + identical seeds, pure CPU minutes.
+
 ## Round 25 (2026-11-10) - paper v0.2 wording pass (PRE_REVIEW fixes 2/3/4 + E10 fold-in)
 
 All language downgrades applied to main.tex exactly per ROADMAP R25; verified by grep (theorem/falsif/channel-physics -> 0 matches) and clean tectonic recompile. Reviewer-facing effect: universal negatives become scoped empirical claims; the gauge result is presented as an identity whose value is the exact-0.500 null; E10 comparative numbers now cited in abstract + Results (addresses pre-review weakness 1 at recipe level). NOT changed: statistics, gates, tables (E10 row itself deferred to operator review scope). Reviewer fix 4's quantitative sweep (>=20 tiles) deliberately NOT claimed from injection AUROCs alone -> queued as R26/E11 with its own pre-registration.
