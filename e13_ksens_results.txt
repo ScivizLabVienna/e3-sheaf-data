@@ -1,0 +1,3 @@
+E13 K-sensitivity on REAL ROI1 faces (fresh measure per K; same LAG/methods/seeds; sigma re-measured per K as in e6b -> levels are comparable within channel, absolute sigma differs)
+K=5 sigma_c=(0.74,0.73): 0.5x:0.525 1.0x:0.586 2.0x:0.685 3.0x:0.774 5.0x:0.838 | first>=0.9: None
+K=7 sigma_c=(0.69,0.77): 0.5x:0.522 1.0x:0.575 2.0x:0.697 3.0x:0.756 5.0x:0.840 | first>=0.9: None

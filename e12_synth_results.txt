@@ -1,0 +1,13 @@
+sigma_c synth = (0.847,0.947) px | P1 branch: INFORMATIVE
+M_edge level 0.5: AUROC 0.510 CI[0.423,0.595]
+M_edge level 1.0: AUROC 0.556 CI[0.469,0.640]
+M_edge level 2.0: AUROC 0.658 CI[0.575,0.738]
+M_edge level 3.0: AUROC 0.737 CI[0.660,0.807]
+M_edge level 5.0: AUROC 0.833 CI[0.769,0.890]
+N_shift level 0.5: AUROC 0.500 CI[0.414,0.587]
+N_shift level 1.0: AUROC 0.500 CI[0.414,0.588]
+N_shift level 2.0: AUROC 0.500 CI[0.414,0.587]
+N_shift level 3.0: AUROC 0.499 CI[0.412,0.587]
+N_shift level 5.0: AUROC 0.499 CI[0.413,0.586]
+P2: first M_edge gate level = None -> >5x/NONE renderer-bug branch
+N_shift gauge check (theory ~0.5): max AUROC 0.500

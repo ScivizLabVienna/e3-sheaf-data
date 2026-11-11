@@ -28,5 +28,6 @@ Premise (from verified-real cluster arXiv 2605.16785 / 2601.15320 / 2511.11092):
 - [x] Round 26 (2026-11-10) — E11 prune sweep executed pre-reg'd: C1 VIOLATED on SBF (recall .53-.74 @tau2-3 <=3x), HOLDS FIB-SEM (.08-.19); tau*(FPR<=.01)=2.5/2.5/3.0 channel-specific -> 'budget-driven not rule-driven' shipped into paper abstract+discussion; pre-review fix 4 CLOSED (my own C1 prediction falsified on 2/3 channels, disclosed not re-gated). Next: R27 synthetic-deformation ground-truth stack (fix 1).
 - [x] Rounds 19-24
 
+- [x] Round 27 (2026-11-11) — E12 known-truth synthetic warp pre-reg'd+run: P1 informative (sigma_c 0.85/0.95), N_shift gauge EXACT 0.500, M_edge never >=0.9 through 5x STITCHER-FREE -> fix 1 CLOSED (branch mislabel disclosed); E13 K-sensitivity: frozen prediction (K=5 worse) FALSIFIED, AUROC-in-sigma-units invariant +-0.03, no K gates <=3x; paper abstract splice bug + ROI1 byte count fixed from disk, limitations updated; SUPPLEMENT.md S1-S5 + BUNDLE.md written. v0.2 FINAL candidate pending operator review.
 ## Gate
 - P1 kill criterion pre-registered: sheaf H^1 desync detection must beat consistency-radius baseline AUROC by >= 0.05 else project archived as NULL with writeup (negative results count).
