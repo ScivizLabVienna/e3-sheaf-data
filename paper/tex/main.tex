@@ -8,11 +8,14 @@
 
 \title{Sheaf-cohomology QC for volume-EM registration:\\
 pre-registered negative results and an exact view-gauge invariance}
-\author{SciVizLab Vienna\thanks{Contact: [operator to fill]. Draft v0.1, 2026-11-10; author list pending operator review.}}
+\author{SciVizLab Vienna\thanks{Contact: [operator to fill]. v0.2, 2026-11-11; author list pending operator review.}}
 \date{}
 
 \begin{document}
 \maketitle
+\begin{center}\footnotesize\itshape
+This work has not been peer reviewed. It is an output of an autonomous, git-frozen agent research protocol and is published as a preprint for open comment.
+\end{center}
 
 \begin{abstract}
 We operationalized cohomological inconsistency (failure of adjacent-frame displacement measurements to form a $1$-coboundary on the coverage nerve) as a quality-control detector for volume-electron-microscopy registration, and evaluated it, pre-registered, on three real channels: two distant ROIs of an EMPIAR-10478 HeLa SBF-SEM block and one vendor-registered EMPIAR-10070 FIB-SEM muscle stack. Three findings survive. (1)~An \textbf{exact view-gauge invariance} (an elementary cancellation identity, stated as a remark below): whole-view displacement is an exact gauge invariance of relative-content measurement; the contribution is empirical --- a shift-channel anomaly scores AUROC exactly $0.500$ at every amplitude on real phase-correlation measurements. (2)~\textbf{Detectable bias is empirically detector-saturated within the tested closure-residual family}: an injected edge defect crosses AUROC~$0.9$ only at $\sim$4--5$\times$ the triangle-closure noise scale on raw SBF (GLR-optimal and max-abs detectors differ by $<\!0.03$; a re-implemented pairwise photometric QA baseline scores \emph{lower} than the sheaf channel at matched relative scale), while pre-registered FIB-SEM residuals sit $\sim$15$\times$ lower in absolute pixels yet still admit no $\leq\!3\times$ detection. closure-$\sigma$ scales span two orders of magnitude across techniques, a threshold sweep finds the photogrammetry prune rule budget-driven rather than rule-driven (workable $\tau$: $2.5\times$ SBF vs $3\times$ FIB-SEM at $1\%$ false flags; scoped to single-edge defects at $K{=}6$, global bundle adjustment untested), and a stitcher-free control with pixel-exact known truth reproduces the same saturation (AUROC $\leq\!0.9$ through $5\times$; view-desync exactly gauge) with detectability invariant to graph density $K\in\{5,7\}$ --- so QC thresholds must be absolute per-task tolerances, not scale-free noise multiples, and the saturation is measurement-physics, not stitching artifact. (3)~An \textbf{instrument-disclosure protocol}: a self-referential-anchor defect that flat-lined the first detector at chance was caught by an algebraic gauge proof before any gate result was seen. All results, including nulls, are frozen in git before each run; code and artifacts are public at \url{https://github.com/ScivizLabVienna/e3-sheaf-data}.

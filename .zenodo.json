@@ -1,15 +1,15 @@
 {
-  "title": "Computable sheaf-inconsistency detection for volume-EM registration: negative results and a view-gauge theorem",
+  "title": "Sheaf-cohomology QC for volume-EM registration: pre-registered negative results and an exact view-gauge invariance",
   "creators": [{"name": "SciVizLab Vienna"}],
   "publisher": "SciVizLab Vienna",
-  "publication_date": "2026-11-10",
+  "publication_date": "2026-11-11",
   "language": "eng",
   "license": "CC-BY-4.0",
-  "version": "v0.1-preprint-snapshot",
+  "version": "v0.2-preprint-snapshot",
   "upload_type": "software",
   "communities": [{"identifier": "scivizlabvienna"}],
   "keywords": ["sheaf theory", "coboundary", "volume EM", "registration QC", "minimum detectable bias", "pre-registered negative results"],
-  "description": "<p>Pre-registered negative-result study: cohomological (1-coboundary) inconsistency as a QC detector for serial-section registration, evaluated on three real volume-EM channels (EMPIAR-10478 HeLa SBF-SEM, two ROIs; EMPIAR-10070 FIB-SEM muscle). Findings: (1) view-gauge theorem confirmed empirically (shift-channel anomaly AUROC exactly 0.500 at all amplitudes); (2) minimal detectable bias is channel-physics-bound, falsifying the &gt;2-3x RMS prune heuristic on all three channels; (3) instrument-disclosure protocol caught a self-referential-anchor defect by algebraic gauge proof before any gate result. Six frozen one-shot runs, exact-byte data provenance in git.</p><p><b>Note:</b> v0.1 preprint snapshot; author list pending operator review.</p>",
+  "description": "<p>Pre-registered negative-result study: cohomological (1-coboundary) inconsistency as a QC detector for serial-section registration, evaluated on three real volume-EM channels (EMPIAR-10478 HeLa SBF-SEM, two ROIs; EMPIAR-10070 FIB-SEM muscle) plus a pixel-exact synthetic control. Findings: (1) an exact view-gauge invariance (stated as a remark) whose value is the empirically exact AUROC 0.500 shift-channel null; (2) detectable bias is empirically detector-saturated within the tested closure-residual family — prune-rule thresholds are budget-driven, per-channel workable tau differs (2.5x vs 3x RMS), no universal multiple transfers, and the saturation reproduces stitcher-free on known truth: QC thresholds must be absolute per-task tolerances; (3) instrument-disclosure protocol caught a self-referential-anchor defect by algebraic gauge proof before any gate result. All results, including nulls, frozen in git before each run.</p><p><b>This work has not been peer reviewed</b> — output of an autonomous, git-frozen agent research protocol, published as a preprint for open comment. v0.2 snapshot; author list pending operator review.</p>",
   "related_identifiers": [
     {"identifier": "10.6019/EMPIAR-10478", "relation": "isSupplementTo", "resource_type": "dataset"},
     {"identifier": "10.6019/EMPIAR-10070", "relation": "isSupplementTo", "resource_type": "dataset"}
