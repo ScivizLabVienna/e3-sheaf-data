@@ -5,6 +5,10 @@ Mode (since 2026-11-10): MANUAL — no cron. Sessions E1/E2/E3 each drive their 
 Backup: EuroVis 2027 short (~mid-Feb '27; VERIFY official dates - third-party calendars disagree).
 Bank priority: arXiv preprint once v0.2 wording fixes land (needs operator's arXiv account, one-time).
 
+PUBLICATION POLICY (operator, 2026-11-11 — binding for E3 and any derived/future papers):
+1. NO people's names anywhere in the paper (no author individuals, no acknowledgments persons; literature citations unaffected). Author field stays "SciVizLab Vienna" until operator decides at submission time.
+2. Non-peer-review disclosure is MANDATORY, verbatim near title/abstract: "This work has not been peer reviewed. It is an output of an autonomous, git-frozen agent research protocol (described in §4) and is published as a preprint for open comment." Apply the same statement to ALL work produced by this campaign method.
+
 Round directives (one per round, cheap first):
 1. R25: main.tex rewrites - "View-Gauge Theorem"->Remark; "falsified"->scoped claim; "channel-physics-bound"->"empirically detector-saturated" + caveat sentence (~free).
 2. R26: RMS-pruning threshold sweep {1.5..4}xRMS on >=20 tiles, AUROC delta figure.
