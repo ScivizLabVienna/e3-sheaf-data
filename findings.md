@@ -225,6 +225,10 @@ GATE G-E10 (frozen): proxy max-AUROC over levels >= 0.9 at level <= 3x sigma_c =
 
 Cost: local CPU on already-downloaded ROI1. One shot, no tuning after verdict.
 
+## Round 25 (2026-11-10) - paper v0.2 wording pass (PRE_REVIEW fixes 2/3/4 + E10 fold-in)
+
+All language downgrades applied to main.tex exactly per ROADMAP R25; verified by grep (theorem/falsif/channel-physics -> 0 matches) and clean tectonic recompile. Reviewer-facing effect: universal negatives become scoped empirical claims; the gauge result is presented as an identity whose value is the exact-0.500 null; E10 comparative numbers now cited in abstract + Results (addresses pre-review weakness 1 at recipe level). NOT changed: statistics, gates, tables (E10 row itself deferred to operator review scope). Reviewer fix 4's quantitative sweep (>=20 tiles) deliberately NOT claimed from injection AUROCs alone -> queued as R26/E11 with its own pre-registration.
+
 ## E10 RESULT (round 24, 2026-11-10) - baseline-proxy vs sheaf channel: tie/loss for baseline
 
 VERDICT (gate G-E10): proxy max-AUROC over levels <=3x = 0.530 < 0.9 -> comparative row for Table 1. Numbers: {0.5:0.415, 1:0.340, 2:0.375, 3:0.530, 5:0.668} (N=360 clean pairs ROI1; null mean score 29.26). GLR reference at 3x = 0.890 -> pairwise photometric QA misses the gate by even more than our channel.
