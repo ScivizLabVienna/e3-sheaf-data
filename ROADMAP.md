@@ -1,6 +1,7 @@
 # E3 roadmap v0.1 -> v0.2 (from PRE_REVIEW.md, 2026-11-10)
 
 Target venue: EM-MIR-style workshop @ MICCAI 2027 (CFPs ~spring '27, subs Apr-Jun '27).
+Mode (since 2026-11-10): MANUAL — no cron. Sessions E1/E2/E3 each drive their own project dir only; before any round, read PROJECTS.md + task_plan/findings + this file; commit per round as before; never touch another project's files in-flight.
 Backup: EuroVis 2027 short (~mid-Feb '27; VERIFY official dates - third-party calendars disagree).
 Bank priority: arXiv preprint once v0.2 wording fixes land (needs operator's arXiv account, one-time).
 
