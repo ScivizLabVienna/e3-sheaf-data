@@ -3,7 +3,7 @@
 Target venue: EM-MIR-style workshop @ MICCAI 2027 (CFPs ~spring '27, subs Apr-Jun '27).
 Mode (since 2026-11-10): MANUAL — no cron. Sessions E1/E2/E3 each drive their own project dir only; before any round, read PROJECTS.md + task_plan/findings + this file; commit per round as before; never touch another project's files in-flight.
 Backup: EuroVis 2027 short (~mid-Feb '27; VERIFY official dates - third-party calendars disagree).
-Bank priority: arXiv preprint once v0.2 wording fixes land (needs operator's arXiv account, one-time).
+Visibility (operator 2026-11-11): NO arXiv — workshop-paper level. GitHub + a Zenodo DOI (mint on the v0.2 release tag; operator's one-time click, pattern = NATIVEHDC doi 10.5281/zenodo.24017023) suffice.
 
 PUBLICATION POLICY (operator, 2026-11-11 — binding for E3 and any derived/future papers):
 1. NO people's names anywhere in the paper (no author individuals, no acknowledgments persons; literature citations unaffected). Author field stays "SciVizLab Vienna" until operator decides at submission time.
